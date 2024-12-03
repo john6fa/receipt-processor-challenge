@@ -14,7 +14,7 @@ The service will be available at `http://localhost:8080`.
 
 ### Test 1:
 
-```json
+```
 POST:
 curl -X POST -H "Content-Type: application/json" \
 -d '{
@@ -43,25 +43,25 @@ curl -X POST -H "Content-Type: application/json" \
 }' http://localhost:8080/receipts/process
 ```
 
-```json
+```
 (a randomly generated UUID)
 Response:
 {"id":"d1416585-084e-47fb-9da9-44216d076ffe"}
 ```
 
-```json
+```
 GET:
 curl http://localhost:8080/receipts/d1416585-084e-47fb-9da9-44216d076ffe/points
 ```
 
-```json
+```
 Response:
 { "points":109 }
 ```
 
 ### Test 2:
 
-```json
+```
 POST:
 curl -X POST -H "Content-Type: application/json" \
 -d '{
@@ -94,13 +94,13 @@ curl -X POST -H "Content-Type: application/json" \
 }' http://localhost:8080/receipts/process
 ```
 
-```json
+```
 (a randomly generated UUID)
 Response:
 {"id":"f11b1b9a-5ca1-407d-9e86-73b96f27826d"}
 ```
 
-```json
+```
 GET:
 curl http://localhost:8080/receipts/f11b1b9a-5ca1-407d-9e86-73b96f27826d/points
 {"points":28}
@@ -108,11 +108,13 @@ curl http://localhost:8080/receipts/f11b1b9a-5ca1-407d-9e86-73b96f27826d/points
 
 ### Test 3:
 
-```json
+```
 Random UUID in URL
 GET:
 curl http://localhost:8080/receipts/d6f65801-192c-4762-9cab-90dd26362606/points
+```
 
+```
 Response:
 Receipt not found
 ```
