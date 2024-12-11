@@ -29,7 +29,7 @@ func (h *Handler) ProcessReceipts(w http.ResponseWriter, r *http.Request) {
 
 	var receipt model.Receipt
 	if err := json.NewDecoder(r.Body).Decode(&receipt); err != nil {
-		http.Error(w, "Invalid request body", http.StatusBadRequest)
+		http.Error(w, "The receipt is invalid.", http.StatusBadRequest)
 		return
 	}
 
@@ -55,7 +55,7 @@ func (h *Handler) GetPoints(w http.ResponseWriter, r *http.Request) {
 
 	receipt, exists := h.ReceiptStore[id]
 	if !exists {
-		http.Error(w, "Receipt not found", http.StatusNotFound)
+		http.Error(w, "No receipt found for that ID.", http.StatusNotFound)
 		return
 	}
 
